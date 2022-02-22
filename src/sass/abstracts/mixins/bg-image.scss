@@ -1,0 +1,11 @@
+@mixin bg-img ($name, $position, $size) {
+    
+    background-image: url('src/assets/images/#{$name}');
+
+    @if $size != '' {
+        background-size: $size;
+    }
+
+    background-repeat: no-repeat;
+    background-position: #{$position};
+}

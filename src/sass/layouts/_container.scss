@@ -1,0 +1,30 @@
+/*
+    Container size responsive based on bootstrap
+*/
+.container {
+    margin: 0 auto;
+
+    @include xsm {
+        width: 95%;
+    }
+
+    @include sm {
+        width: 540px;
+    }
+
+    @include md {
+        width: 720px;
+    }
+
+    @include lg {
+        width: 960px;
+    }
+
+    @include xlg {
+        width: 1140px;
+    }
+
+    @include xxlg {
+        width: 1320px;
+    }
+}

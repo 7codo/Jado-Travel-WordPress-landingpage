@@ -1,0 +1,811 @@
+/*---0- Outer help hand ***/
+@import './abstracts/variables/breapoints';
+@import './abstracts/mixins/responsive';
+@import './layouts/container';
+@import './layouts/ybox';
+
+@import './abstracts/variables/colors';
+@import './abstracts/mixins/animation';
+@import './abstracts/mixins/bg-image';
+@import './components/primary-btn';
+@import './abstracts/mixins/shadows';
+@import './layouts/center';
+
+/*---1- Outer help hand ***/
+
+
+/*---0- Global ***/
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.btn {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.section__headtag {
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: $comet;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    font-size: 1.5rem;
+
+    @include md {
+        font-size: 1.1rem;
+    }
+
+    @include lg {
+        font-size: 1.125rem;
+    }
+}
+
+.section__title {
+    font-size: 1.5rem;
+
+    @include md {
+        font-size: 2rem;
+    }
+
+    @include lg {
+        font-size: 3.125rem;
+    }
+
+    text-transform: capitalize;
+    text-align: center;
+    color: $primary;
+    font-weight: 600;
+}
+
+
+/*---1- Global ---*/
+
+/*---0- Header---*/
+.header {
+    @include bg-img('hero-decore.png', 'center center', cover);
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @include md {
+            flex-wrap: nowrap;
+        }
+
+        &__togller {
+            border: 1px solid $accent;
+            border-radius: 5px;
+            padding: 0.2em 0.5em;
+
+            @include md {
+                display: none;
+            }
+        }
+
+        &__navigation {
+            width: 100%;
+            display: none;
+
+            @include md {
+                display: flex;
+                width: auto;
+            }
+
+            ul.menu {
+                list-style-type: none;
+                padding: 0;
+
+                @include md {
+                    @include center-horizontal;
+                    column-gap: 1em;
+                }
+
+                .menu-item {
+                    padding: 0.6em 0.5em;
+                    border-bottom: 1px solid transparent;
+                    @include hover-transition('all');
+
+                    @include md {
+                        padding: 0.5em 0.7em;
+                    }
+
+                    &:hover {
+                        border-bottom: 1px solid $accent;
+
+                    }
+                }
+            }
+
+
+            &__actions {
+                @include center-horizontal;
+
+                .contactus-btn {
+                    border: 1px solid $accent;
+                    border-radius: 5px;
+                    margin-right: 1em;
+                    padding: 0.6em 0.5em;
+                    margin-left: 1em;
+                    @include hover-transition(background-color);
+
+                    &:hover {
+                        background-color: #f2f2f273
+                    }
+                }
+
+                .languages-select {
+                    border: none;
+                    background: transparent;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .hero {
+
+        @include lg {
+            @include center-horizontal;
+        }
+
+        &__textcopy {
+            padding: 3em 0;
+            width: 100%;
+            /**/
+            text-align: center;
+            margin: 0 auto;
+
+            @include lg {
+                width: 50%;
+                text-align: left;
+            }
+
+            @include custom-breakpoint(992px, 1199px) {
+                width: 75%;
+
+            }
+
+            .tagline {
+                color: $third;
+                font-size: 1.25rem;
+                font-weight: bold;
+                text-transform: uppercase;
+
+                @include custom-breakpoint(320px, 375px) {
+                    font-size: 1rem;
+                }
+            }
+
+            .heading {
+                color: $primary;
+                font-size: 3rem;
+                line-height: 140%;
+
+                @include custom-breakpoint(320px, 375px) {
+                    font-size: 2rem;
+                }
+
+                @include lg {
+                    font-size: 85px;
+                    line-height: 115%;
+                }
+
+                font-weight: 600;
+                margin: 0.2em 0;
+
+                &__special {
+
+                    @include bg-img('text-underline-decore.png', 'bottom center', '')
+                }
+            }
+
+            .description {
+
+                color: $comet;
+                line-height: 150%;
+                width: 75%;
+                margin-bottom: 1.7em;
+                /**/
+                margin-right: auto;
+                margin-left: auto;
+
+                @include custom-breakpoint(320px, 375px) {
+                    width: 100%;
+                }
+
+                @include lg {
+                    margin-right: 0;
+                    margin-left: 0;
+                }
+            }
+
+            .cta {
+                @include center-horizontal;
+                /**/
+                justify-content: center;
+
+                @include lg {
+                    justify-content: start;
+                }
+
+                @include custom-breakpoint(320px, 375px) {
+                    flex-wrap: wrap
+                }
+
+                .findoutmore-btn {
+                    @include primary-btn($web-orange);
+                    @include primary-box-shadow($findoutmore);
+                    margin-right: 0.5em;
+                    @include hover-transition(background-color);
+
+                    &:hover {
+                        background-color: $web-orange-dark
+                    }
+
+
+                    @include lg {
+                        margin-right: 2em;
+                    }
+
+                }
+
+                .playdemo-btn {
+                    border: none;
+                    @include center-horizontal;
+                    text-transform: capitalize;
+
+                    @include custom-breakpoint(320px, 375px) {
+                        margin-top: 1em;
+                    }
+
+
+                    &:hover {
+                        .play-circle {
+                            background-color: $third-dark
+                        }
+                    }
+
+                    .play-circle {
+                        @include hover-transition(background-color);
+
+                        width: 52px;
+                        height: 52px;
+                        border-radius: 100%;
+                        background-color: $third;
+                        @include primary-box-shadow($playdemo);
+                        @include center-horizontal;
+                        @include center-vertical;
+                        margin-right: 0.75em;
+
+                        @include custom-breakpoint(320px, 375px) {
+                            margin-right: 0.55em;
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        &__image {
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+/*---1- Header---*/
+
+/*---0- Services---*/
+.services {
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    @include lg {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    @include xlg {
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+
+    background-image: url('src/assets/images/services-decore-0.png');
+    background-position: top 90px right 50px;
+    background-repeat: no-repeat;
+
+    @include custom-breakpoint(1480px, 1575px) {
+        background-image: url('src/assets/images/services-decore-0.png'),
+            url('src/assets/images/services-decore.png');
+        background-position: top 90px right 50px,
+            bottom 50px left 420px;
+    }
+
+    &__categories {
+        @include center-horizontal;
+        text-align: center;
+        flex-wrap: wrap;
+        row-gap: 1em;
+        justify-content: space-between;
+
+        .category {
+            width: 100%;
+
+            @include custom-breakpoint(325px, 570px) {
+                margin: 0 3em;
+            }
+
+            @include sm {
+                width: 14rem;
+            }
+
+            @include md {
+                width: 15rem;
+                justify-content: start;
+                column-gap: 2em;
+            }
+
+            @include xlg {
+                justify-content: space-between;
+
+            }
+
+            box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.02),
+            0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0151852),
+            0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0121481),
+            0px 20px 13px rgba(0, 0, 0, 0.01),
+            0px 8.14815px 6.51852px rgba(0, 0, 0, 0.00785185),
+            0px 1.85185px 3.14815px rgba(0, 0, 0, 0.00481481);
+
+            border-radius: 35px;
+            background-color: #fff;
+            padding: 5em 0.95em;
+
+            &__title {
+                text-transform: capitalize;
+                color: $primary;
+                font-size: 1.25rem;
+                font-weight: 500;
+                margin: 0.75em 0;
+            }
+
+            &__description {
+                color: $comet;
+                line-height: 170%;
+                width: 75%;
+                margin: 0 auto;
+                margin-top: 0.5em;
+            }
+
+            &:not(.category__special) {
+                .category__icon {
+                    margin: 35px 0;
+                }
+            }
+
+        }
+    }
+}
+
+/*---1- Services---*/
+
+/*---0- Destinations---*/
+.destinations {
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    @include lg {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    @include xlg {
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+
+    &__categories {
+        margin-top: 3em;
+        @include center-horizontal;
+
+        flex-wrap: wrap;
+        row-gap: 2em;
+        justify-content: center;
+
+        @include md {
+            justify-content: space-between;
+        }
+
+        @include lg {
+            padding: 0 4em;
+        }
+
+        @include xlg {
+            @include bg-img('destinations-decore.png', 'center right', '');
+        }
+
+        .categories__dest {
+            width: 315px;
+            color: $comet;
+            font-weight: 500;
+            border-radius: 24px;
+            background: #fff;
+            filter: drop-shadow(0px 100px 80px rgba(0, 0, 0, 0.02)) drop-shadow(0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0151852)) drop-shadow(0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0121481)) drop-shadow(0px 20px 13px rgba(0, 0, 0, 0.01)) drop-shadow(0px 8.14815px 6.51852px rgba(0, 0, 0, 0.00785185)) drop-shadow(0px 1.85185px 3.14815px rgba(0, 0, 0, 0.00481481));
+
+            .dest__image {
+                border-top-left-radius: 24px;
+                border-top-right-radius: 24px;
+            }
+
+            .dest__details {
+                padding: 1.5em 1em 1.25em 1em;
+                @include center-horizontal;
+                justify-content: space-between;
+            }
+
+            .dest__navigation {
+                padding: 0 1em 1.5em 1em;
+                @include center-horizontal;
+
+                .navigation__icon {
+                    margin-right: 0.5em;
+                }
+            }
+        }
+    }
+}
+
+/*---1- Destinations---*/
+
+/*---0- Book---*/
+.book {
+    .container {
+        @include center-horizontal;
+        flex-wrap: wrap;
+
+        @include lg {
+            flex-wrap: nowrap;
+        }
+
+        .book__structor {
+
+            .structor__headtag {
+                text-align: left;
+            }
+
+            .structor__title {
+                text-align: left;
+                margin: 0.2em 0 0.75em 0;
+            }
+
+            .structor__values {
+                margin-top: 2.5em;
+                list-style-type: none;
+                padding: 0;
+
+                .value {
+                    @include center-horizontal;
+                    color: $comet;
+
+                    &__icon {
+                        margin-right: 0.75em;
+                    }
+
+                    &__heading {
+                        margin-bottom: 0.25em;
+                        text-transform: capitalize;
+                    }
+
+                    &__description {
+                        font-size: 0.875rem;
+                        font-weight: 400;
+                        line-height: 130%;
+                        width: 90%;
+                    }
+
+                    &.middle {
+                        margin: 2em 0;
+                    }
+                }
+
+            }
+        }
+
+        .book__image {
+            img {
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+/*---1- Book---*/
+/*---0- Testimonials---*/
+.testimonials {
+
+    .container {
+        @include center-horizontal;
+        flex-wrap: wrap;
+        position: relative;
+        top: 0;
+        left: 0;
+
+        .testimonials__details {
+            width: 100%;
+
+            @include md {
+                width: 50%;
+            }
+
+            h4,
+            h3 {
+                text-align: center;
+
+                @include md {
+                    text-align: left;
+                }
+            }
+        }
+
+        .testimonials__cards {
+            width: 100%;
+
+            @include md {
+                width: 50%;
+            }
+
+            .testimonial__card {
+                color: $comet;
+                padding: 1.5em;
+                margin: 1em;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.02), 0px 64.8148px 46.8519px rgba(0, 0, 0, 0.0151852), 0px 38.5185px 25.4815px rgba(0, 0, 0, 0.0121481), 0px 20px 13px rgba(0, 0, 0, 0.01), 0px 8.14815px 6.51852px rgba(0, 0, 0, 0.00785185), 0px 1.85185px 3.14815px rgba(0, 0, 0, 0.00481481);
+
+
+                .avatar {
+                    width: 68px;
+                    height: 68px;
+                }
+
+                .description {
+                    line-height: 125%;
+                    font-weight: 300;
+                    margin-top: 0.5em;
+                    margin-bottom: 1em;
+                }
+
+                .title {
+                    margin-bottom: 0.25em;
+                }
+
+                .headtag {
+                    font-weight: 400;
+                }
+
+            }
+
+            .owl-dots {
+                position: absolute;
+                left: -100%;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+/*---1- Testimonials---*/
+
+/*---0- Logos---*/
+.logos {
+    &__pack {
+        width: 75%;
+        margin: 0 auto;
+        @include center-horizontal;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 2em;
+        column-gap: 1em;
+        filter: grayscale(100%);
+
+        @include xlg {
+            justify-content: space-between;
+        }
+    }
+}
+
+/*---1- Logos---*/
+
+/*---0- Subscribe---*/
+.subscribe {
+
+    background-image: url('src/assets/images/subscribe-decore.png'), url('src/assets/images/subscribe-decore-1.png');
+    background-position: center center, bottom 20px right 113px;
+    background-repeat: no-repeat;
+
+    &__card {
+        margin: 0 auto;
+        width: 75%;
+        height: 500px;
+        @include center-vertical;
+        flex-direction: column;
+        align-items: center;
+
+        .subscribe__cta {
+            font-size: 1.5rem;
+
+            @include sm {
+                font-size: 1.75rem;
+            }
+
+            @include md {
+                font-size: 2.0625rem;
+            }
+
+            font-weight: 500;
+            line-height: 130%;
+            color: $comet;
+            text-align: center;
+        }
+
+        .subscribe__form {
+            text-align: center;
+            margin-top: 2em;
+            @include center-horizontal;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .email-input {
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+                padding-left: 1.75em;
+                font-size: 0.99rem;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid $comet;
+                width: 100%;
+                margin-bottom: 1.5em;
+
+                @include md {
+                    width: auto;
+                    margin-right: 1em;
+                    margin-bottom: 0em;
+                }
+
+                @include bg-img('icons/email.png', 'left center', '');
+                background-color: transparent;
+
+            }
+
+            .submit-btn {
+                padding: 1em 1.55em;
+                background: linear-gradient(180deg, #FF946D 0%, #FF7D68 100%);
+                border-radius: 10px;
+                @include hover-transition('background');
+
+                &:hover {
+                    background: linear-gradient(180deg, #FF7D68 100%, #FF946D 0%);
+                }
+
+                outline: none;
+                border: none;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+/*---1- Subscribe---*/
+
+/*---0- Footer---*/
+.footer {
+    &__crown {
+        @include center-horizontal;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: center;
+
+
+        .crown__desc {
+            width: 250px;
+
+            .desc__logo {
+                margin-bottom: 0.75em;
+            }
+
+            .desc__desc {
+                line-height: 125%;
+            }
+        }
+
+        .crown__pages {
+            @include center-horizontal;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2em auto;
+            row-gap: 1.5em;
+            column-gap: 1.5em;
+
+            @include lg {
+                column-gap: 3em;
+            }
+
+            .links {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                // width: 100%;
+
+                .title {
+                    text-transform: capitalize;
+                    margin-bottom: 0.75em;
+                }
+
+                li {
+                    margin-bottom: 0.25em;
+                }
+            }
+        }
+
+
+        .crown__important {
+
+            .apps,
+            .socials {
+                @include center-horizontal;
+                list-style-type: none;
+            }
+
+            .discover-more {
+                color: $comet;
+                text-align: center;
+            }
+
+            .apps li:first-child {
+                margin-right: 1em;
+            }
+        }
+    }
+
+    .site-info {
+        padding: 1em 0;
+        text-align: center;
+    }
+}
+
+/*---1- Footer---*/
+
+
+/*
+ *what's diffrence between box-shadow and filter drop shadow
+ *but as an advantage with filter:drop-shadow you can generate shadow around irregular shapes or images, whereas box-shadows generates a rectangular shadow.
+
+*/

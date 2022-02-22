@@ -1,0 +1,6 @@
+/*
+    Hover transition
+*/
+@mixin hover-transition($property) {
+    transition: #{$property} 0.25s ease-in-out;
+}

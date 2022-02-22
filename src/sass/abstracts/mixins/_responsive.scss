@@ -1,0 +1,41 @@
+@mixin xsm {
+    @media (max-width: $small) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: $small) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: $medium) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: $large) {
+        @content;
+    }
+}
+
+@mixin xlg {
+    @media (min-width: $x-large) {
+        @content;
+    }
+}
+
+@mixin xxlg {
+    @media (min-width: $xx-large) {
+        @content;
+    }
+}
+
+@mixin custom-breakpoint($min, $max) {
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
